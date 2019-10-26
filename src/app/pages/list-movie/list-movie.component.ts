@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
+
 
 @Component({
   selector: 'app-list-movie',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListMovieComponent implements OnInit {
 
-  constructor() { }
+  movieList$: Observable<Array<any>>
+  displayedColumns: string[] = ['name', 'rate', 'rateChange'];
+
+  constructor(private store: Store<InitialStateInt>) { }
 
   ngOnInit() {
+    this.movieList$ = this.store.
+      select(state => {
+        console.log(state.movieList)
+        return state.movieList
+      })
+    
   }
 
 }
