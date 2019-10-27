@@ -4,4 +4,13 @@
   .mat-form-field {
     max-width: 120px;
   }
+  .mat-radio-button {
+    margin: 0;
+    width: 100%;
+  }
+  .new-button {
+    .mat-icon {
+      line-height: 20px;
+    }
+  }
 }

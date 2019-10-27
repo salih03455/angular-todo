@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /* Material Modules: */
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { MatSelectModule } from '@angular/material/select';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSelectModule,
+    MatIconModule,
+    MatMenuModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ store: movieReducer }),

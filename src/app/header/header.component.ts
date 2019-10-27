@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 export interface Food {
   value: string;
@@ -13,8 +12,6 @@ export interface Food {
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
-  toppings = new FormControl();
-  typeList: string[] = ['Tümü', 'Filmler', 'Diziler'];
   foods: Food[] = [
     {value: 'azalan', viewValue: 'Puana Göre (Azalan)'},
     {value: 'artan', viewValue: 'Puana Göre (Artan)'}
