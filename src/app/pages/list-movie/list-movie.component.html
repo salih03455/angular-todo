@@ -1,8 +1,8 @@
 <div class="list-page py-4">
   <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="(movieList$ | async)?.length else empty">
       <div class="col-12">
-        <table mat-table [dataSource]="movieList$" class="mat-elevation-z8">
+        <table mat-table [dataSource]="movieList$ | async" class="mat-elevation-z8">
           <ng-container matColumnDef="name">
             <td mat-cell *matCellDef="let movie"> {{movie.movieName}} </td>
           </ng-container>
@@ -16,6 +16,16 @@
         </table>
       </div>
     </div>
+    <ng-template #empty>
+      <div class="list-empty text-center">
+        <div class="mb-3 mt-5">
+          <button mat-fab color="primary" routerLink="">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <span>İlk kaydınızı oluşturun</span>
+      </div>
+    </ng-template>
   </div>
 </div>
 
