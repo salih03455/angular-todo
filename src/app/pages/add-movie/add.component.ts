@@ -8,7 +8,7 @@ import { Movie } from '../../models/movie.model'
 @Component({
   selector: 'app-add-component',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss'], 
+  styleUrls: ['./add.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AddMovieComponent implements OnInit {

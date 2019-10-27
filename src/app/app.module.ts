@@ -11,6 +11,11 @@ import { StoreModule } from '@ngrx/store';
 import { movieReducer } from './store/reducers/movie.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ListMovieModule } from './pages/list-movie/list-movie.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+/* Material Modules: */
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,10 @@ import { ListMovieModule } from './pages/list-movie/list-movie.module';
     AddMovieModule,
     ListMovieModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ store: movieReducer }),
     StoreDevtoolsModule.instrument() // chrome dev tool için
   ],
