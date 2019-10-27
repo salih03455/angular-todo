@@ -1,3 +1,17 @@
+
+.movie-row {
+  .delete-icon {
+    display: none;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  :hover {
+    .delete-icon {
+      display: inline-block;
+    } 
+  }
+}
+
 .list-empty {
   .mat-button-wrapper {
     padding: 0;
