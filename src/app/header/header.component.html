@@ -1,9 +1,8 @@
 <div class="header py-3">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" *ngIf="currentPage == 'list'">
         <div class="sort">
-
           <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu1">Türler</button>
           <mat-menu #menu1="matMenu" class="px-3 py-2">
             <mat-radio-group name="sortType" aria-label="Select an option" aria-labelledby="example-radio-group-label"
@@ -22,17 +21,21 @@
 
         </div>
       </div>
+      <div class="col-12 col-md-4" *ngIf="currentPage == 'add'">
+        <div class="back-button">
+          <button mat-raised-button color="primary" routerLink="listMovie"><mat-icon>keyboard_arrow_left</mat-icon>Listeye Dön</button>
+        </div>
+      </div>
       <div class="col-12 col-md-4 text-center">
         <div class="title">
-          <h1>Awesome Todo</h1>
+          <h1>Awesome Todo {{deneme}}</h1>
         </div>
       </div>
       <div class="col-12 col-md-4 text-right">
         <div class="new-button">
-          <button mat-raised-button color="primary"><mat-icon>add</mat-icon>YENİ KAYIT</button>
+          <button mat-raised-button color="primary" routerLink="addMovie"><mat-icon>add</mat-icon>YENİ KAYIT</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<a routerLink="listMovie">List</a>

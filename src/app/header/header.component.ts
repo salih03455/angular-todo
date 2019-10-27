@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute,NavigationEnd } from '@angular/router';
 
 export interface Food {
   value: string;
@@ -16,7 +17,15 @@ export class HeaderComponent implements OnInit {
     {value: 'azalan', viewValue: 'Puana Göre (Azalan)'},
     {value: 'artan', viewValue: 'Puana Göre (Artan)'}
   ];
-  constructor() {}
+  currentPage: string
+  constructor(private route:ActivatedRoute, private router:Router) {
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd) {
+        this.currentPage = this.route.root.firstChild.snapshot.data['name']
+      }
+    });
+  }
 
   ngOnInit() {}
+
 }

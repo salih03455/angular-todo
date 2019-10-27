@@ -4,8 +4,16 @@ import { AddMovieComponent } from './pages/add-movie/add.component'
 import { ListMovieComponent } from './pages/list-movie/list-movie.component';
 
 const routes: Routes = [
-  { path: 'addMovie', component: AddMovieComponent },
-  { path: 'listMovie', component: ListMovieComponent },
+  { 
+    path: 'addMovie',
+    component: AddMovieComponent,
+    data: { name: 'add' }
+  },
+  { 
+    path: 'listMovie',
+    component: ListMovieComponent,
+    data: { name: 'list' }
+  },
 ];
 
 @NgModule({
