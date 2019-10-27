@@ -21,7 +21,7 @@
       </div>
       <div class="col-12 col-md-4" *ngIf="currentPage == 'add'">
         <div class="back-button">
-          <button mat-raised-button color="primary" routerLink="listMovie"><mat-icon>keyboard_arrow_left</mat-icon>Listeye Dön</button>
+          <button mat-raised-button color="primary" routerLink=""><mat-icon>keyboard_arrow_left</mat-icon>Listeye Dön</button>
         </div>
       </div>
       <div class="col-12 col-md-4 text-center">
@@ -31,7 +31,7 @@
       </div>
       <div class="col-12 col-md-4 text-right">
         <div class="new-button">
-          <button mat-raised-button color="primary" routerLink="" [disabled]="currentPage=='add'"><mat-icon>add</mat-icon>YENİ KAYIT</button>
+          <button mat-raised-button color="primary" routerLink="addMovie" [disabled]="currentPage=='add'"><mat-icon>add</mat-icon>YENİ KAYIT</button>
         </div>
       </div>
     </div>
