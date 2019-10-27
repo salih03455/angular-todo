@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
 
-
 @Component({
   selector: 'app-list-movie',
   templateUrl: './list-movie.component.html',

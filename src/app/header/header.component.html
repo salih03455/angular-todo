@@ -14,9 +14,9 @@
           </mat-menu>
 
           <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu2">Sırala</button>
-          <mat-menu #menu2="matMenu">
-              <button mat-menu-item>Puana Göre (Azalan)</button>
-              <button mat-menu-item>Puana Göre (Artan)</button>
+          <mat-menu #menu2="matMenu" class="px-3 py-2">
+              <mat-radio-button color="primary" value="azalan">Puana Göre (Azalan)</mat-radio-button>
+              <mat-radio-button color="primary" value="artan">Puana Göre (Artan)</mat-radio-button>
           </mat-menu>
 
         </div>
