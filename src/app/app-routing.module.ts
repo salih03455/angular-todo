@@ -5,7 +5,7 @@ import { ListMovieComponent } from './pages/list-movie/list-movie.component';
 
 const routes: Routes = [
   { 
-    path: 'addMovie',
+    path: '',
     component: AddMovieComponent,
     data: { name: 'add' }
   },
