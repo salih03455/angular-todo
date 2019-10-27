@@ -32,7 +32,7 @@ export class AddMovieComponent implements OnInit {
       movieName: this.movieName,
       movieRate: this.movieRate,
     }
-    this.store.dispatch({type: Actions.MOVIE_ADD, payload: movie})
+    this.store.dispatch({ type: Actions.MOVIE_ADD, payload: movie })
   }
 
 }
