@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
 import { Movie } from '../../models/movie.model'
 
+/* Aşağıdan açılır popup: */
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-add-component',
@@ -17,7 +19,11 @@ export class AddMovieComponent implements OnInit {
   movieName: string;
   movieRate: number;
 
-  constructor(private store: Store<InitialStateInt>) {}
+  constructor(private store: Store<InitialStateInt>, private _bottomSheet: MatBottomSheet) {}
+
+  openBottomSheet(): void {
+    this._bottomSheet.open(BottomSheetOverviewExampleSheet);
+  }
 
   ngOnInit() {}
 
@@ -33,6 +39,20 @@ export class AddMovieComponent implements OnInit {
       movieRate: this.movieRate,
     }
     this.store.dispatch({ type: Actions.MOVIE_ADD, payload: movie })
+    this.openBottomSheet()
   }
 
+}
+
+@Component({
+  selector: 'bottom-sheet',
+  templateUrl: 'bottom-sheet.html',
+})
+export class BottomSheetOverviewExampleSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }

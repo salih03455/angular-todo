@@ -8,6 +8,19 @@
 //   margin: 5px;
 // }
 
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
+.add-page {
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+}
+
+.bottom-sheed {
+  .save-text {
+    font-size: 20px;
+  }
+  .mat-icon {
+    font-size: 100px;
+    width: auto;
+    height: auto;
+  }
 }
