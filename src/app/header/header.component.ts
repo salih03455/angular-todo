@@ -13,10 +13,6 @@ export interface Food {
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
-  foods: Food[] = [
-    {value: 'azalan', viewValue: 'Puana Göre (Azalan)'},
-    {value: 'artan', viewValue: 'Puana Göre (Artan)'}
-  ];
   currentPage: string
   constructor(private route:ActivatedRoute, private router:Router) {
     this.router.events.subscribe(event => {

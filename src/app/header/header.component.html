@@ -12,13 +12,11 @@
               <mat-radio-button color="primary" value="series">Diziler</mat-radio-button>
             </mat-radio-group>
           </mat-menu>
-
           <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu2">Sırala</button>
           <mat-menu #menu2="matMenu" class="px-3 py-2">
               <mat-radio-button color="primary" value="azalan">Puana Göre (Azalan)</mat-radio-button>
               <mat-radio-button color="primary" value="artan">Puana Göre (Artan)</mat-radio-button>
           </mat-menu>
-
         </div>
       </div>
       <div class="col-12 col-md-4" *ngIf="currentPage == 'add'">
