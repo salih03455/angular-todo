@@ -12,8 +12,8 @@
           <ng-container matColumnDef="rateChange">
             <td mat-cell *matCellDef="let movie">
               <div class="d-flex flex-column align-items-center float-right">
-                <mat-icon class="rate-icon up">arrow_drop_up</mat-icon>
-                <mat-icon class="rate-icon down">arrow_drop_down</mat-icon>
+                <mat-icon class="rate-icon up" id={{movie.id}} (click)="increase($event, movie.movieRate)">arrow_drop_up</mat-icon>
+                <mat-icon class="rate-icon down" id={{movie.id}} (click)="decrease($event, movie.movieRate)">arrow_drop_down</mat-icon>
               </div>
             </td>
           </ng-container>

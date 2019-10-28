@@ -24,4 +24,14 @@ export class ListMovieComponent implements OnInit {
   deleteMovie(event) {
     this.store.dispatch({ type: Actions.MOVIE_DELETE, payload: event.target.id })
   }
+
+  increase(event, rate) {
+    rate +=1
+    this.store.dispatch({ type: Actions.RATE_CHANGE, payload: {id: event.target.id, rate} })
+  }
+
+  decrease(event, rate) {
+    rate -=1
+    this.store.dispatch({ type: Actions.RATE_CHANGE, payload: {id: event.target.id, rate} })
+  }
 }

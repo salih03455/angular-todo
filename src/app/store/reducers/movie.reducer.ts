@@ -25,7 +25,11 @@ export function movieReducer(state = InitialState, action: ActionCustom) {
     case Actions.MOVIE_ADD:
       return {...state, movieList: [...state.movieList, action.payload]}
     case Actions.MOVIE_DELETE:
-        return {...state, movieList: [...state.movieList.filter(movie => movie.id !== action.payload)]}
+      return {...state, movieList: [...state.movieList.filter(movie => movie.id !== action.payload)]}
+    case Actions.RATE_CHANGE:
+      return {...state, movieList: state.movieList.map(movie => 
+        movie.id == action.payload.id ? { ...movie, movieRate: action.payload.rate } : movie
+      )}
     default:
       return state
   }
