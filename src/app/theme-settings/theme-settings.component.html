@@ -1,1 +1,19 @@
-<p>theme-settings works!</p>
+<div class="theme-settings d-flex{{ settings ? ' open' : null }}">
+  <div class="theme-settings-head d-flex flex-column justify-content-center align-items-center" (click)="toggleSettings()">
+    <mat-icon>settings</mat-icon>
+  </div>
+  <div class="theme-settings-content text-center">
+    <div class="py-2">Tema Rengi Seçiniz:</div>
+    <div class="mb-2">
+      <button mat-fab color="primary" class="mx-1" aria-label="Example icon-button with a heart icon">
+        <mat-icon>check</mat-icon>
+      </button>
+      <button mat-fab color="primary" class="mx-1" aria-label="Example icon-button with a heart icon">
+        <mat-icon>check</mat-icon>
+      </button>
+      <button mat-fab color="primary" class="mx-1" aria-label="Example icon-button with a heart icon">
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

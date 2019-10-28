@@ -18,6 +18,8 @@ button {
   -moz-user-select: -moz-none;
   -o-user-select: none;
   user-select: none;
+  width: auto !important;
+  height: auto !important;
 }
 
 .mat-menu-panel {

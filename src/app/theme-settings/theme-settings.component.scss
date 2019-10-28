@@ -1,0 +1,36 @@
+.theme-settings {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  transform: translateX(180px);
+  transition: 0.3s ease-in-out;
+  &.open {
+    transform: translateX(0);
+  }
+  .theme-settings-head {
+    border: 1px solid #ddd;
+    border-right: none;
+    width: 65px;
+    height: 40px;
+    border-radius: 20px 0 0 20px;
+    cursor: pointer;
+  }
+  .theme-settings-content {
+    border: 1px solid #ddd;
+    border-right: none;
+    width: 180px;
+    font-size: 11px;
+    .mat-fab {
+      width: 30px;
+      height: 30px;
+      .mat-button-wrapper {
+        padding: 0;
+        vertical-align: text-bottom;
+        .mat-icon {
+          font-size: 15px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
