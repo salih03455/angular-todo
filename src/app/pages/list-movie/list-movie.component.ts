@@ -24,7 +24,7 @@ export class ListMovieComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieList$ = this.store.select('movieStore', 'sort')
+    this.movieList$ = this.store.select('movieStore', 'filter')
   }
 
   deleteMovie(event, movie) {
