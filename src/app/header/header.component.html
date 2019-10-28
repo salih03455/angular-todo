@@ -7,9 +7,9 @@
           <mat-menu #menu1="matMenu" class="px-3 py-2">
             <mat-radio-group name="sortType" aria-label="Select an option" aria-labelledby="example-radio-group-label"
               class="example-radio-group">
-              <mat-radio-button color="primary" value="all">Tümü</mat-radio-button>
-              <mat-radio-button color="primary" value="films">Filmler</mat-radio-button>
-              <mat-radio-button color="primary" value="series">Diziler</mat-radio-button>
+              <mat-radio-button color="primary" value="all" (change)="selectMovieType($event)">Tümü</mat-radio-button>
+              <mat-radio-button color="primary" value="film" (change)="selectMovieType($event)">Filmler</mat-radio-button>
+              <mat-radio-button color="primary" value="series" (change)="selectMovieType($event)">Diziler</mat-radio-button>
             </mat-radio-group>
           </mat-menu>
           <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu2">Sırala</button>

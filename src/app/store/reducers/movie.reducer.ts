@@ -3,7 +3,7 @@ import * as MovieActions from '../actions/movie.actions'
 /* Store'un Interface'si */
 export interface InitialStateInt {
   movieList: Array<any>,
-  sort: string,
+  sort: Array<any>,
   filter: string
 }
 
@@ -14,7 +14,7 @@ export interface ActionCustom {
 
 const InitialState:InitialStateInt = {
   movieList: [],
-  sort: '',
+  sort: [],
   filter: ''
 }
 
@@ -28,6 +28,14 @@ export function movieReducer(state = InitialState, action: ActionCustom) {
       return {...state, movieList: state.movieList.map(movie => 
         movie.id == action.payload.id ? { ...movie, movieRate: action.payload.rate } : movie
       )}
+    case MovieActions.FILTER:
+      if (action.payload == 'all') {
+        console.log(action.payload, 1)
+        return {...state, sort: [...state.movieList]}
+      } else {
+        console.log(action.payload, 2)
+        return {...state, sort: [...state.movieList.filter(movie => movie.movieType == action.payload)]}
+      }
     default:
       return state
   }
