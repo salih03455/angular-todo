@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
@@ -6,7 +6,7 @@ import { Movie } from '../../models/movie.model'
 import * as Actions from '../../store/actions/actions';
 
 /* Aşağıdan açılır popup: */
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-list-movie',
@@ -28,8 +28,13 @@ export class ListMovieComponent implements OnInit {
     this.movieList$ = this.store.select('store', 'movieList')
   }
 
-  deleteMovie(event) {
+  deleteMovie(event, name) {
     this.openBottomSheet()
+
+    this._bottomSheet.open(BottomSheet, {
+      data: name
+    });
+
     //this.store.dispatch({ type: Actions.MOVIE_DELETE, payload: event.target.id })
   }
 
@@ -51,7 +56,7 @@ export class ListMovieComponent implements OnInit {
   templateUrl: 'bottom-sheet.html',
 })
 export class BottomSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();

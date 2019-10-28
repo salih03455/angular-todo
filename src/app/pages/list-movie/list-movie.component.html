@@ -4,7 +4,7 @@
       <div class="col-12">
         <table mat-table [dataSource]="movieList$ | async" class="mat-elevation-z8 movie-list">
           <ng-container matColumnDef="name">
-            <td mat-cell *matCellDef="let movie"> {{movie.movieName}} <mat-icon class="delete-icon" id={{movie.id}} (click)="deleteMovie($event)">delete</mat-icon></td>
+            <td mat-cell *matCellDef="let movie"> {{movie.movieName}} <mat-icon class="delete-icon" id={{movie.id}} (click)="deleteMovie($event, movie.movieName)">delete</mat-icon></td>
           </ng-container>
           <ng-container matColumnDef="rate">
             <td mat-cell *matCellDef="let movie"><mat-icon class="star-icon">star</mat-icon> {{movie.movieRate}} </td>
