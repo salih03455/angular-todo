@@ -40,6 +40,9 @@ export class AddMovieComponent implements OnInit {
     }
     this.store.dispatch({ type: Actions.MOVIE_ADD, payload: movie })
     this.openBottomSheet()
+    this.movieType = null
+    this.movieName = null
+    this.movieRate = null
   }
 
 }

@@ -22,8 +22,6 @@ export class ListMovieComponent implements OnInit {
   }
 
   deleteMovie(event) {
-    //const newMovieList = this.movieList$.subscribe(par => par.filter(a => a['id'] != event.target.id))
-    //console.log(newMovieList)
     this.store.dispatch({ type: Actions.MOVIE_DELETE, payload: event.target.id })
   }
 }

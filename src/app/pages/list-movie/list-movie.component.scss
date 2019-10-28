@@ -1,13 +1,42 @@
 
 .movie-row {
+  font-weight: 500;
   .delete-icon {
-    display: none;
+    visibility: hidden;
+    transform: scale(0);
+    transition: transform 0.2s;
     vertical-align: middle;
     cursor: pointer;
+    position: absolute;
+    line-height: 20px;
+    color: orangered;
   }
-  :hover {
+  .star-icon {
+    vertical-align: middle;
+    line-height: 20px;
+    color: gold;
+  }
+  .rate-icon {
+    width: auto;
+    height: auto;
+    line-height: 15px;
+    cursor: pointer;
+    font-size: 35px;
+    &.up {
+      color: green;
+    }
+    &.down {
+      color: red;
+    }
+  }
+  .cdk-column-rateChange {
+    text-align: right;
+  }
+  &:hover {
     .delete-icon {
       display: inline-block;
+      visibility: visible;
+      transform: scale(1);
     } 
   }
 }
