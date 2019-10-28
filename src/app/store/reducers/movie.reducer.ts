@@ -1,6 +1,4 @@
-import { Action } from '@ngrx/store';
-import * as Actions from '../actions/actions'
-
+import * as MovieActions from '../actions/movie.actions'
 
 /* Store'un Interface'si */
 export interface InitialStateInt {
@@ -22,11 +20,11 @@ const InitialState:InitialStateInt = {
 
 export function movieReducer(state = InitialState, action: ActionCustom) {
   switch (action.type) {
-    case Actions.MOVIE_ADD:
+    case MovieActions.MOVIE_ADD:
       return {...state, movieList: [...state.movieList, action.payload]}
-    case Actions.MOVIE_DELETE:
+    case MovieActions.MOVIE_DELETE:
       return {...state, movieList: [...state.movieList.filter(movie => movie.id !== action.payload)]}
-    case Actions.RATE_CHANGE:
+    case MovieActions.RATE_CHANGE:
       return {...state, movieList: state.movieList.map(movie => 
         movie.id == action.payload.id ? { ...movie, movieRate: action.payload.rate } : movie
       )}

@@ -1,0 +1,1 @@
+export const CURRENT_COLOR = 'CURRENT_COLOR'

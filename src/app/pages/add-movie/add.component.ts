@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
-import * as Actions from '../../store/actions/actions';
+import * as MovieActions from '../../store/actions/movie.actions';
 import { Store } from '@ngrx/store';
 import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
 import { Movie } from '../../models/movie.model'
@@ -39,7 +39,7 @@ export class AddMovieComponent implements OnInit {
       movieName: this.movieName,
       movieRate: this.movieRate,
     }
-    this.store.dispatch({ type: Actions.MOVIE_ADD, payload: movie })
+    this.store.dispatch({ type: MovieActions.MOVIE_ADD, payload: movie })
     this.openBottomSheet()
     this.movieType = null
     this.movieName = null

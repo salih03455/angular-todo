@@ -11,10 +11,13 @@ import { AddMovieModule } from './pages/add-movie/add.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
-import { movieReducer } from './store/reducers/movie.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ListMovieModule } from './pages/list-movie/list-movie.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+/* Reducers: */
+import { movieReducer } from './store/reducers/movie.reducer';
+import { themeReducer } from './store/reducers/theme.reducer';
 
 /* Material Modules: */
 import { MatButtonModule } from '@angular/material/button';
@@ -43,7 +46,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ store: movieReducer }),
+    StoreModule.forRoot({ movieStore: movieReducer, themeStore: themeReducer }),
     StoreDevtoolsModule.instrument() // chrome dev tool için
   ],
   providers: [],
