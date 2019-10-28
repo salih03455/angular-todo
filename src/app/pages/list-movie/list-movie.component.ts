@@ -28,14 +28,13 @@ export class ListMovieComponent implements OnInit {
     this.movieList$ = this.store.select('store', 'movieList')
   }
 
-  deleteMovie(event, name) {
-    this.openBottomSheet()
+  deleteMovie(event, movie) {
+    // this.openBottomSheet()
 
     this._bottomSheet.open(BottomSheet, {
-      data: name
+      data: movie
     });
 
-    //this.store.dispatch({ type: Actions.MOVIE_DELETE, payload: event.target.id })
   }
 
   increase(event, rate) {
@@ -49,17 +48,16 @@ export class ListMovieComponent implements OnInit {
   }
 }
 
-
-
 @Component({
   selector: 'bottom-sheet',
   templateUrl: 'bottom-sheet.html',
 })
 export class BottomSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+  constructor(private store: Store<InitialStateInt>, private _bottomSheetRef: MatBottomSheetRef<BottomSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
 
-  openLink(event: MouseEvent): void {
+  isDelete(event: MouseEvent, data, status): void {
     this._bottomSheetRef.dismiss();
     event.preventDefault();
+    status && this.store.dispatch({ type: Actions.MOVIE_DELETE, payload: data.id })
   }
 }

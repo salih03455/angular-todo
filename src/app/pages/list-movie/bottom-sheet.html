@@ -1,4 +1,11 @@
-<div>
-  <mat-icon>delete</mat-icon>
-  bottom sheed for delete {{ data }}
+<div class="delete-control d-flex align-items-center flex-column text-center">
+  <mat-icon class="mt-4 mb-2">delete</mat-icon>
+  <div class="mb-4">
+    {{ data.movieName }}<br>
+    <span>Silmek istediğine<br>emin misin?</span>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" class="my-2 mx-1 px-5" (click)="isDelete($event, data, false)">İptal</button>
+    <button mat-raised-button color="primary" class="my-2 mx-1 px-5" (click)="isDelete($event, data, true)">Evet</button>
+  </div>
 </div>
