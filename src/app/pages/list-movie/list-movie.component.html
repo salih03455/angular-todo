@@ -4,7 +4,12 @@
       <div class="col-12">
         <table mat-table [dataSource]="movieList$ | async" class="mat-elevation-z8 movie-list">
           <ng-container matColumnDef="name">
-            <td mat-cell *matCellDef="let movie"> {{movie.movieName}} <mat-icon class="delete-icon" id={{movie.id}} (click)="deleteMovie($event, movie)">delete</mat-icon></td>
+            <td mat-cell *matCellDef="let movie"> 
+              <div class="movie-name">
+                {{movie.movieName}}
+                <mat-icon class="delete-icon" id={{movie.id}} (click)="deleteMovie($event, movie)">delete</mat-icon>
+              </div>
+            </td>
           </ng-container>
           <ng-container matColumnDef="rate">
             <td mat-cell *matCellDef="let movie"><mat-icon class="star-icon">star</mat-icon> {{movie.movieRate}} </td>
@@ -12,8 +17,8 @@
           <ng-container matColumnDef="rateChange">
             <td mat-cell *matCellDef="let movie">
               <div class="d-flex flex-column align-items-center float-right">
-                <mat-icon class="rate-icon up" id={{movie.id}} (click)="increase($event, movie.movieRate)">arrow_drop_up</mat-icon>
-                <mat-icon class="rate-icon down" id={{movie.id}} (click)="decrease($event, movie.movieRate)">arrow_drop_down</mat-icon>
+                <mat-icon class="rate-icon up mb-1" id={{movie.id}} (click)="increase($event, movie.movieRate)">arrow_drop_up</mat-icon>
+                <mat-icon class="rate-icon down mt-1" id={{movie.id}} (click)="decrease($event, movie.movieRate)">arrow_drop_down</mat-icon>
               </div>
             </td>
           </ng-container>

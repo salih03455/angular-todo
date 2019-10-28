@@ -1,15 +1,26 @@
 
 .movie-row {
   font-weight: 500;
-  .delete-icon {
-    visibility: hidden;
-    transform: scale(0);
-    transition: transform 0.2s;
-    vertical-align: middle;
-    cursor: pointer;
-    position: absolute;
-    line-height: 20px;
-    color: orangered;
+  line-height: 35px;
+  .movie-name {
+    line-height: 35px;
+    .delete-icon {
+      visibility: hidden;
+      transform: scale(0);
+      transition: transform 0.2s;
+      vertical-align: middle;
+      cursor: pointer;
+      position: absolute;
+      line-height: 35px;
+      color: orangered;
+    }
+    &:hover {
+      .delete-icon {
+        display: inline-block;
+        visibility: visible;
+        transform: scale(1);
+      } 
+    }
   }
   .star-icon {
     vertical-align: middle;
@@ -29,15 +40,11 @@
       color: red;
     }
   }
+  .cdk-column-name {
+    width: 47%;
+  }
   .cdk-column-rateChange {
     text-align: right;
-  }
-  &:hover {
-    .delete-icon {
-      display: inline-block;
-      visibility: visible;
-      transform: scale(1);
-    } 
   }
 }
 
