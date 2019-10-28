@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ThemeSettingsComponent } from './theme-settings/theme-settings.component'
+
 import { AddMovieModule } from './pages/add-movie/add.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { movieReducer } from './store/reducers/movie.reducer';
@@ -25,6 +28,7 @@ import { MatRadioModule } from '@angular/material/radio';
     AppComponent,
     HeaderComponent,
     LayoutComponent,
+    ThemeSettingsComponent,
   ],
   imports: [
     BrowserModule,
