@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs';
 import * as Actions from '../../store/actions/actions';
 import { Store } from '@ngrx/store';
 import { InitialStateInt } from 'src/app/store/reducers/movie.reducer';
@@ -22,7 +23,7 @@ export class AddMovieComponent implements OnInit {
   constructor(private store: Store<InitialStateInt>, private _bottomSheet: MatBottomSheet) {}
 
   openBottomSheet(): void {
-    this._bottomSheet.open(BottomSheetOverviewExampleSheet);
+    this._bottomSheet.open(BottomSheet);
   }
 
   ngOnInit() {}
@@ -51,8 +52,8 @@ export class AddMovieComponent implements OnInit {
   selector: 'bottom-sheet',
   templateUrl: 'bottom-sheet.html',
 })
-export class BottomSheetOverviewExampleSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}
+export class BottomSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>) {}
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();
