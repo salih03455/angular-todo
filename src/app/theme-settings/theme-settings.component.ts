@@ -25,8 +25,7 @@ export class ThemeSettingsComponent implements OnInit {
     this.settings = !this.settings
   }
 
-    changeThemeColor (event, color) {
-      console.log(this.currentColor$)
+  changeThemeColor (event, color) {
     this.store.dispatch({ type: ThemeActions.CURRENT_COLOR, payload: color })
   }
 }

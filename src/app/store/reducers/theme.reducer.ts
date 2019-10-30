@@ -17,7 +17,7 @@ const InitialState:InitialStateInterface = {
 export function themeReducer(state = InitialState, action: ActionCustom) {
   switch (action.type) {
     case ThemeActions.CURRENT_COLOR:
-      return action.payload 
+      return {...state, color: action.payload }
     default:
       return state
   }
