@@ -29,7 +29,7 @@
     <ng-template #empty>
       <div class="list-empty text-center">
         <div class="mb-3 mt-5">
-          <button mat-fab color="primary" routerLink="addMovie">
+          <button mat-fab color={{currentColor$|async}} routerLink="addMovie">
             <mat-icon>add</mat-icon>
           </button>
         </div>

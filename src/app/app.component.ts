@@ -1,7 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-root',

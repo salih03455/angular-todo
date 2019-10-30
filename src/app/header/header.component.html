@@ -3,25 +3,25 @@
     <div class="row align-items-center">
       <div class="col-12 col-md-4" *ngIf="currentPage == 'list'">
         <div class="sort">
-          <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu1">Türler</button>
+          <button mat-raised-button color={{currentColor$|async}} class="mr-2" [matMenuTriggerFor]="menu1">Türler</button>
           <mat-menu #menu1="matMenu" class="px-3 py-2">
             <mat-radio-group name="sortType" aria-label="Select an option" aria-labelledby="example-radio-group-label"
               class="example-radio-group">
-              <mat-radio-button color="primary" value="all" (change)="selectMovieType($event)">Tümü</mat-radio-button>
-              <mat-radio-button color="primary" value="film" (change)="selectMovieType($event)">Filmler</mat-radio-button>
-              <mat-radio-button color="primary" value="series" (change)="selectMovieType($event)">Diziler</mat-radio-button>
+              <mat-radio-button color={{currentColor$|async}} value="all" (change)="selectMovieType($event)">Tümü</mat-radio-button>
+              <mat-radio-button color={{currentColor$|async}} value="film" (change)="selectMovieType($event)">Filmler</mat-radio-button>
+              <mat-radio-button color={{currentColor$|async}} value="series" (change)="selectMovieType($event)">Diziler</mat-radio-button>
             </mat-radio-group>
           </mat-menu>
-          <button mat-raised-button color="primary" class="mr-2" [matMenuTriggerFor]="menu2">Sırala</button>
+          <button mat-raised-button color={{currentColor$|async}} class="mr-2" [matMenuTriggerFor]="menu2">Sırala</button>
           <mat-menu #menu2="matMenu" class="px-3 py-2">
-              <mat-radio-button color="primary" value="azalan">Puana Göre (Azalan)</mat-radio-button>
-              <mat-radio-button color="primary" value="artan">Puana Göre (Artan)</mat-radio-button>
+              <mat-radio-button color={{currentColor$|async}} value="azalan">Puana Göre (Azalan)</mat-radio-button>
+              <mat-radio-button color={{currentColor$|async}} value="artan">Puana Göre (Artan)</mat-radio-button>
           </mat-menu>
         </div>
       </div>
       <div class="col-12 col-md-4" *ngIf="currentPage == 'add'">
         <div class="back-button">
-          <button mat-raised-button color="primary" routerLink=""><mat-icon>keyboard_arrow_left</mat-icon>Listeye Dön</button>
+          <button mat-raised-button color={{currentColor$|async}} routerLink=""><mat-icon>keyboard_arrow_left</mat-icon>Listeye Dön</button>
         </div>
       </div>
       <div class="col-12 col-md-4 text-center">
@@ -31,7 +31,7 @@
       </div>
       <div class="col-12 col-md-4 text-right">
         <div class="new-button">
-          <button mat-raised-button color="primary" routerLink="addMovie" [disabled]="currentPage=='add'"><mat-icon>add</mat-icon>YENİ KAYIT</button>
+          <button mat-raised-button color={{currentColor$|async}} routerLink="addMovie" [disabled]="currentPage=='add'"><mat-icon>add</mat-icon>YENİ KAYIT</button>
         </div>
       </div>
     </div>

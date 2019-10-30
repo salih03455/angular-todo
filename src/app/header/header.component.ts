@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { InitialStateInt } from '../store/reducers/movie.reducer';
 import * as MovieActions from '../store/actions/movie.actions';
+import { Observable } from 'rxjs';
 
 export interface Food {
   value: string;
@@ -16,11 +17,12 @@ export interface Food {
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
+  currentColor$: Observable<string>
   currentPage: string
   constructor(
     private route:ActivatedRoute,
     private router:Router,
-    private store: Store<InitialStateInt>
+    private themestore: Store<string>
   ){
     this.router.events.subscribe(event => {
       if(event instanceof NavigationEnd) {
@@ -29,10 +31,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentColor$ = this.themestore.select('themeStore', 'color')
+  }
 
   selectMovieType(event) {
-    this.store.dispatch({ type: MovieActions.FILTER, payload: event.value })
+    this.themestore.dispatch({ type: MovieActions.FILTER, payload: event.value })
   }
 
 }

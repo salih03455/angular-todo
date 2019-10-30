@@ -5,7 +5,7 @@
         <form class="example-form">
           <div class="row">
             <div class="col-12">
-              <mat-radio-group name="movieType" color="primary" class="mr-4" [(ngModel)]="movieType" aria-label="Select an option" aria-labelledby="example-radio-group-label"
+              <mat-radio-group name="movieType" color={{currentColor$|async}} class="mr-4" [(ngModel)]="movieType" aria-label="Select an option" aria-labelledby="example-radio-group-label"
               class="example-radio-group">
                 <mat-radio-button value="film" class="mr-3">Film</mat-radio-button>
                 <mat-radio-button value="series">Dizi</mat-radio-button>
@@ -22,7 +22,7 @@
               </mat-form-field>
             </div>
             <div class="col-12 text-right">
-              <button mat-raised-button color="primary" (click)="addMovie()">Kaydet</button>
+              <button mat-raised-button color={{currentColor$|async}} (click)="addMovie()">Kaydet</button>
             </div>
           </div>
         </form>

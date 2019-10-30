@@ -14,10 +14,15 @@ import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angul
   encapsulation: ViewEncapsulation.None
 })
 export class ListMovieComponent implements OnInit {
-  movieList$: Observable<Array<any>>
+  currentColor$: Observable<string>;
+  movieList$: Observable<Array<any>>;
   displayedColumns: string[] = ['name', 'rate', 'rateChange'];
 
-  constructor(private store: Store<InitialStateInt>, private _bottomSheet: MatBottomSheet) {}
+  constructor(
+    private store: Store<InitialStateInt>,
+    private themestore: Store<string>,
+    private _bottomSheet: MatBottomSheet
+  ) {}
 
   openBottomSheet(): void {
     this._bottomSheet.open(BottomSheet);
@@ -25,6 +30,7 @@ export class ListMovieComponent implements OnInit {
 
   ngOnInit() {
     this.movieList$ = this.store.select('movieStore', 'movieList')
+    this.currentColor$ = this.themestore.select('themeStore', 'color')
   }
 
   deleteMovie(event, movie) {

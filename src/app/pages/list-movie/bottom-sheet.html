@@ -5,7 +5,7 @@
     <span>Silmek istediğine<br>emin misin?</span>
   </div>
   <div>
-    <button mat-raised-button color="primary" class="my-2 mx-1 px-5" (click)="isDelete($event, data, false)">İptal</button>
-    <button mat-raised-button color="primary" class="my-2 mx-1 px-5" (click)="isDelete($event, data, true)">Evet</button>
+    <button mat-raised-button color={{currentColor$|async}} class="my-2 mx-1 px-5" (click)="isDelete($event, data, false)">İptal</button>
+    <button mat-raised-button color={{currentColor$|async}} class="my-2 mx-1 px-5" (click)="isDelete($event, data, true)">Evet</button>
   </div>
 </div>

@@ -15,18 +15,24 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-shee
   encapsulation: ViewEncapsulation.None
 })
 export class AddMovieComponent implements OnInit {
-
+  currentColor$: Observable<string>;
   movieType: string;
   movieName: string;
   movieRate: number;
 
-  constructor(private store: Store<InitialStateInt>, private _bottomSheet: MatBottomSheet) {}
+  constructor(
+    private store: Store<InitialStateInt>,
+    private themestore: Store<string>,
+    private _bottomSheet: MatBottomSheet
+  ) {}
 
   openBottomSheet(): void {
     this._bottomSheet.open(BottomSheet);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentColor$ = this.themestore.select('themeStore', 'color')
+  }
 
   generateId () {
     return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase()
@@ -54,7 +60,15 @@ export class AddMovieComponent implements OnInit {
   templateUrl: 'bottom-sheet.html',
 })
 export class BottomSheet {
-  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>) {}
+  currentColor$: Observable<string>;
+  constructor(
+    private _bottomSheetRef: MatBottomSheetRef<BottomSheet>,
+    private themestore: Store<string>
+  ) {}
+
+  ngOnInit() {
+    this.currentColor$ = this.themestore.select('themeStore', 'color')
+  }
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();
