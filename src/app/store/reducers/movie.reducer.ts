@@ -4,9 +4,10 @@ import * as MovieActions from '../actions/movie.actions'
 export interface InitialStateInt {
   movieList: Array<any>,
   sort: Array<any>,
-  filter: Array<any>
+  filter: string
 }
 
+/* Dispatch ile gönderilen parametrelerin tipi */
 export interface ActionCustom {
   type: string,
   payload: any
@@ -15,7 +16,7 @@ export interface ActionCustom {
 const InitialState:InitialStateInt = {
   movieList: [],
   sort: [],
-  filter: []
+  filter: 'all'
 }
 
 export function movieReducer(state = InitialState, action: ActionCustom) {
@@ -29,11 +30,7 @@ export function movieReducer(state = InitialState, action: ActionCustom) {
         movie.id == action.payload.id ? { ...movie, movieRate: action.payload.rate } : movie
       )}
     case MovieActions.FILTER:
-      if (action.payload == 'all') {
-        return {...state, filter: [...state.movieList]}
-      } else {
-        return {...state, filter: [...state.movieList.filter(movie => movie.movieType == action.payload)]}
-      }
+      return {...state, filter: action.payload}
     default:
       return state
   }

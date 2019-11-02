@@ -15,7 +15,7 @@ import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angul
 })
 export class ListMovieComponent implements OnInit {
   currentColor$: Observable<string>;
-  movieList$: Observable<Array<any>>;
+  filteredMovies: Array<any>;
   displayedColumns: string[] = ['name', 'rate', 'rateChange'];
 
   constructor(
@@ -29,7 +29,19 @@ export class ListMovieComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieList$ = this.store.select('movieStore', 'movieList')
+    this.store.select('movieStore', 'filter').subscribe(filter => {
+      this.store.select('movieStore', 'movieList').subscribe(movies => {
+        this.filteredMovies = movies.filter(movie => {
+          if (filter === 'all') {
+            return movies
+          } else {
+            return movie.movieType === filter
+          }
+        })
+      })
+    });
+
+    
     this.currentColor$ = this.themestore.select('themeStore', 'color')
   }
 
@@ -55,7 +67,11 @@ export class ListMovieComponent implements OnInit {
   templateUrl: 'bottom-sheet.html',
 })
 export class BottomSheet {
-  constructor(private store: Store<InitialStateInt>, private _bottomSheetRef: MatBottomSheetRef<BottomSheet>, @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+  constructor(
+    private store: Store<InitialStateInt>,
+    private _bottomSheetRef: MatBottomSheetRef<BottomSheet>,
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: any
+  ) {}
 
   isDelete(event: MouseEvent, data, status): void {
     this._bottomSheetRef.dismiss();
